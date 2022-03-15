@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="StyleNeural.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap" rel="stylesheet">
+    <title>Нейронная Сеть</title>
+</head>
+<body>
+    <div class="grid">
+		<div class="logoHolder">
+			<a href="../index.html">
+				<img src="../assets/logo.png" alt="logo">
+			</a>
+		</div>
+		<div class="sidenav">
+			<a href="../task1/task1.html">A*</a>
+			<a href="../task2/task2.html">Кластеризация</a>
+			<a href="../task3/task3.html">Генетический Алгоритм</a>
+			<a href="../task4/task4.html">Муравьиный Алгоритм</a>
+			<a href="../task5/task5.html">Дерево Решений</a>
+			<a href="../task6/task6.html" class="current">Нейронная Сеть</a>
+			<a href="../task6/5x5/neural5x5.html">Нейронная Сеть 5x5</a>
+		</div>
+
+		<canvas class="canvas"></canvas>
+		<div class="settings">
+			<input type="file" id = 'upload'>
+			<label for="upload" class="uploadLabel">Определить веса</label>
+			<span id="fileName">Файл не выбран</span>
+			<button id="clear">Очистить</button>			
+		</div>
+		<div class = 'result'>
+			<span class ='res'></span>
+		</div>
+		<div class = "findNum">
+			<button id="find">Определить число</button>
+		</div>
+	</div>
+
+	<script src="draw50x50.js"></script>
+	<script src="ui50x50.js"></script>
+	<script src="Neural50x50.js"></script>
+</body>
+</html>

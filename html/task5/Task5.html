@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleTask5.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap" rel="stylesheet">
+    <title>Дерево Решений</title>
+</head>
+<body>
+    <div class="grid">
+		<div class="logoHolder">
+			<a href="../index.html">
+				<img src="../assets/logo.png" alt="logo">
+			</a>
+		</div>
+		<div class="sidenav">
+			<a href="../task1/task1.html">A*</a>
+			<a href="../task2/task2.html">Кластеризация</a>
+			<a href="../task3/task3.html">Генетический Алгоритм</a>
+			<a href="../task4/task4.html">Муравьиный Алгоритм</a>
+			<a href="../task5/task5.html" class="current">Дерево Решений</a>
+			<a href="../task6/task6.html">Нейронная Сеть</a>
+		</div>
+
+		<div class="treeContainer">
+			<ul class="tree"></ul>
+		</div>
+		<div class="pathsContainer">
+			<ul class="pathsList">
+				<h2>Результаты</h2>
+			</ul>
+		</div>
+		<div class="inputContainer">
+			<div class="switchContainer">
+				<label class="switch">
+					<input type="checkbox" id="inputTypeSwitch">
+					<span class="slider round"></span>
+				</label>
+				<span>Ручной ввод</span>
+			</div>
+			<div class="fileInputContainer">
+				<label for="upload" class="uploadLabel">Выбрать файл</label>
+				<span class="dataInfo">Файл не выбран</span>
+				<input type="file" id='upload' name="upload" accept=".csv, .txt">
+			</div>
+			<div class="textInputContainer">
+				<div>
+					<textarea id="textInput"></textarea>
+				</div>
+				<span class="dataInfo">Файл не выбран</span>
+			</div>
+		</div>
+		<div class="algorithmBtnsContainer">
+			<div style="height: 34px;"></div>
+			<button id="treeBtn">Построить дерево</button>
+			<button id="predictBtn">Показать результаты</button>
+		</div>
+	</div>
+
+	<script src="record.js"></script>
+	<script src="tree.js"></script>
+	<script src="ui.js"></script>
+	<script src="scriptTask5.js"></script>
+</body>
+</html>

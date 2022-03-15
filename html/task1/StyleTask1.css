@@ -1,0 +1,382 @@
+body
+{
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  background-color: #212121;
+}
+*:focus
+{
+  outline: none;
+}
+body button {
+  font-family: 'Montserrat', sans-serif;
+}
+body button:hover {
+  background-color: #4f9a94;
+}
+body input {
+  font-family: 'Montserrat', sans-serif;
+}
+.grid
+{
+  display: grid;
+  margin-top: 1%;
+  justify-content: start;
+  grid-template-columns: 0.5fr auto max-content;
+  grid-template-rows: 100px repeat(4, max-content) auto;
+  row-gap: 6%;
+  column-gap: 2%;
+  grid-template-areas:
+    "logo logo ."
+    "sidenav matrix inputN"
+    "sidenav matrix generate"
+    "sidenav matrix ends"
+    "sidenav matrix walkType"
+    "sidenav matrix findWay";
+}
+.logoHolder
+{
+  width: 100%;
+  text-align: start;
+  margin-left: 1%;
+  grid-area: logo;
+}
+.sidenav {
+  color: whitesmoke;
+  background-color: transparent;
+  font-size: 1.2em;
+  grid-area: sidenav;
+}
+.matrixTable 
+{
+  position: relative;
+  width: 650px;
+  height: 650px;
+  border-radius: 20px;
+  background-color: #484848;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+  border-collapse: collapse;
+  overflow: hidden;
+  grid-area: matrix;
+}
+.inputN
+{
+  place-self: center;
+  width: max-content;
+  color: black;
+  background-color: #80cbc4;
+  border: none;
+  border-radius: 10px;
+  margin-top: 2%;
+  padding: 3%;
+  text-align: center;
+  font-size: 1.2em;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+  grid-area: inputN;
+}
+#nnum
+{
+  width: max-content;
+  border: 1px solid #484848;
+  border-radius: 8px;
+  font-size: 0.9em;
+  padding: 4px;
+  margin: 4px 0px;
+}
+.roundedDivider
+{
+  place-self: center;
+  width: 70%;
+  border-top: 1px solid #80cbc4;
+  border-radius: 10px;
+  grid-area: divider;
+}
+.generate {grid-area: generate;}
+.endPoints 
+{
+  display: flex;
+  height: max-content;
+  justify-content: space-between;
+  grid-area: ends;
+}
+.walkType {grid-area: walkType;}
+.findWay
+{
+  grid-area: findWay;
+}
+
+.logoHolder img
+{
+  height: 100%;
+}
+
+.sidenav .menu 
+{
+  list-style: none;
+  padding: 0px;
+}
+.sidenav a,
+.sidenav a:visited
+{
+  display: block;
+  margin: 16px 12px;
+  padding: 10px 16px;
+  color: whitesmoke;
+  text-decoration: none;
+  transition: all 0.5s ease;
+  position: relative;
+}
+.sidenav a:not(.current)::after
+{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: whitesmoke;
+  width: 0;
+  height: 2px;
+  border-radius: 12px;
+  transition: all .5s ease;
+}
+.sidenav a:not(.current):hover:after
+{
+  width: 100%;
+}
+.sidenav a.current 
+{
+  color: black;
+  border-radius: 12px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+  transition: all .5s ease;
+}
+.sidenav a.current:hover 
+{
+  color: whitesmoke;
+  box-shadow: none;
+}
+.sidenav a.current::before
+{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: whitesmoke;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  z-index: -1;
+  transition: all .5s ease;
+}
+.sidenav a.current:hover::before 
+{
+  width: 0;
+  color: whitesmoke;
+}
+
+.zapusk
+{
+  width: 100%;
+  color: black;
+  font-size: 1.3em;
+  background-color: #80cbc4;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.6);
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+.zapusk:active {
+  transform: scale(0.98);
+}
+.zapusk:disabled
+{
+  cursor: default;
+  color: #757575;
+  background: transparent;
+  border: 2px dashed #757575;
+}
+
+.endPoints>button 
+{
+  display: inline;
+  background-color: transparent;
+  color: whitesmoke;
+  font-size: 1.1em;
+  padding: 8px 12px;
+  margin: 0 6px;
+  width: 40%;
+  text-decoration: none;
+  border: 1px solid #80cbc4;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+.endPoints>button.choosed 
+{
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+}
+.endPoints>button[mode=start].choosed
+{
+  border: 1px solid #ff7043;
+  background: #ff7043;
+}
+.endPoints>button[mode=start]:hover
+{
+  border: 1px solid #ff8a65;
+  background: #ff8a65;
+}
+.endPoints>button[mode=finish].choosed
+{
+  border: 1px solid #66bb6a;
+  background: #66bb6a;
+}
+.endPoints>button[mode=finish]:hover
+{
+  border: 1px solid #81c784;
+  background: #81c784;
+}
+.endPoints>button[mode=wall].choosed
+{
+  border: 1px solid #484848;
+  background: #484848;
+}
+.endPoints>button[mode=wall]:hover
+{
+  border: 1px solid #757575;
+  background: #757575;
+}
+
+.walkType ul
+{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+	overflow: auto;
+}
+ul li
+{
+  color: #bdbdbd;
+  position: relative;
+  width: 100%;
+}
+ul li input[type=radio]
+{
+  position: absolute;
+  visibility: hidden;
+}
+ul li label
+{
+  display: block;
+  position: relative;
+  font-weight: bolder;
+  font-size: 1.2em;
+  padding: 12px 0 12px 44px;
+  margin: 10px 0;
+  height: 20px;
+  z-index: 9;
+  cursor: pointer;
+  transition: all .5s ease;
+}
+ul li:hover label
+{
+	color: #fff;
+}
+ul li .check
+{
+  position: absolute;
+  border: 3px solid #bdbdbd;
+  border-radius: 100%;
+  height: 20px;
+  width: 20px;
+  top: 11px;
+  left: 10px;
+	z-index: 5;
+	transition: border .5s ease;
+}
+ul li:hover .check
+{
+  border: 3px solid #fff;
+}
+ul li .check::before 
+{
+  display: block;
+  position: absolute;
+	content: '';
+  border-radius: 100%;
+  height: 10px;
+  width: 10px;
+  top: 5px;
+	left: 5px;
+  margin: auto;
+	transition: all .5s ease;
+}
+input[type=radio]:checked ~ .check 
+{
+  border: 3px solid #80cbc4;
+}
+
+input[type=radio]:checked ~ .check::before
+{
+  background: #80cbc4;
+}
+
+input[type=radio]:checked ~ label
+{
+  color: #80cbc4;
+}
+
+.hiddenbut
+{
+  width: 100%;
+  color: black;
+  font-size: 1.5em;
+  background-color: #80cbc4;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.6);
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.hiddenbut:active {
+  transform: scale(0.98);
+}
+
+table tr td {
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  background-color: #b0bec5;
+}
+
+table tr td:hover {
+  background-color: #ffd54f;
+}
+
+table tr td.elem {
+  cursor: pointer;
+}
+
+table tr td.elem.start {
+  background-color: #ff7043;
+}
+
+table tr td.elem.wall {
+  background-color: #484848;
+}
+
+table tr td.elem.finish {
+  background-color: #66bb6a;
+}
+
+.notopen
+{
+  background-color: #ffd54f;
+}
+
+.open
+{
+  background-color: #00E0FF
+}

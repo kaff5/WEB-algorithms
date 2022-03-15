@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="StyleTask1.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap" rel="stylesheet">
+    <title>А*</title>
+</head>
+
+<body>
+    <div class="grid">
+		<div class="logoHolder">
+			<a href="../index.html">
+				<img src="../assets/logo.png" alt="logo">
+			</a>
+		</div>
+		<div class="sidenav">
+			<a href="../task1/task1.html" class="current">A*</a>
+			<a href="../task2/task2.html">Кластеризация</a>
+			<a href="../task3/task3.html">Генетический Алгоритм</a>
+			<a href="../task4/task4.html">Муравьиный Алгоритм</a>
+			<a href="../task5/task5.html">Дерево Решений</a>
+			<a href="../task6/task6.html">Нейронная Сеть</a>
+		</div>
+        <table class="matrixTable">
+            <tbody id ="matrix"><td style="visibility: hidden;"></td></tbody>
+        </table>
+        <div class="inputN">
+            <input name="nnum" type="number" id="nnum" min="1" max="2">
+			<label for="nnum">Размер лабиринта</label>
+		</div>
+        <div class="generate">
+            <button class= "zapusk" type="button">Сгенерировать</button>
+		</div>
+        <b class="roundedDivider"></b>
+        <div class="endPoints">
+            <button mode="start" class="setmode" type="button">Вход</button>
+            <button mode="finish" class="setmode" type="button">Выход</button>
+            <button mode="wall" class="setmode" type="button">Стена</button>
+        </div>
+        <div class="walkType">
+            <ul>
+                <li>
+                    <input type="radio" name="radioselector" id = "vertical" checked>
+                    <label for="vertical">Ортогональный обход</label>
+                    <div class="check"></div>
+                </li>
+                <li>
+                    <input type="radio" name="radioselector" id = "diagonal">
+                    <label for="diagonal">Диагональный обход</label>
+                    <div class="check"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="findWay">
+            <button class = "hiddenbut" type = "button">Построить маршрут</button>
+		</div>
+	</div>
+    <script src="apptask1.js"></script>
+    <script src="Maze.js"></script>
+    <script src = "verticalDiagonal.js"></script>
+</body>
+
+</html>
